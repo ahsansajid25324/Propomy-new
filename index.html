@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" as="image" href="/logo.png" />
+    <link rel="canonical" href="https://www.propomy.com/" />
+    <style>
+      .app-loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100vw;
+        background-color: #ffffff;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .loader-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .loader-logo {
+        height: 48px;
+        width: auto;
+      }
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #000000;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      .loader-text {
+        font-size: 14px;
+        color: #666666;
+        margin: 0;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="app-loader">
+        <div class="loader-card">
+          <img
+            src="data:image/png;base64,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"
+            alt="Loading"
+            class="loader-logo"
+          />
+          <div class="spinner"></div>
+          <p class="loader-text">Loading your experience…</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Non-Blocking Deferred Analytics -->
+    <!-- <script>
+      window.addEventListener("load", function () {
+        var script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-EMT254QYCN";
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-EMT254QYCN");
+      });
+    </script> -->
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

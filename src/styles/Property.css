@@ -1,0 +1,253 @@
+.form-main-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.custom-form-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.custom-input {
+  height: auto;
+}
+.auto-derived,
+.auto-calculated {
+  background-color: #e9ecef !important;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Save Button */
+.btn-save {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+
+.btn-save:hover {
+  background-color: #0b5ed7;
+  color: white;
+}
+
+.property-heading {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.property-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .property-heading {
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  .custom-form-card {
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.property-container {
+  background: #fff;
+  padding: 24px;
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.property-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.property-table th {
+  padding: 12px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.property-table td {
+  padding: 16px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  color: #364153;
+}
+
+.status-badge {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+@media (max-width: 720px) {
+  .property-container {
+    padding: 16px;
+  }
+}
+
+.owned {
+  background: #d1e7dd;
+  color: #188300;
+}
+.archived {
+  background: #e2e3e5;
+  color: #444444;
+}
+
+.address-col {
+  max-width: 420px;
+  width: 16vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.undercontract {
+  background: #fff3cd;
+  color: #856404;
+}
+.watchlist {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.edit-btn {
+  color: #5c67f2;
+}
+.delete-btn {
+  color: #dc3545;
+}
+
+.details-btn {
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 4px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.action-btn-clean {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  color: #2563eb;
+  margin-right: 8px;
+}
+.delete-icon {
+  color: #b91c1c;
+}
+
+
+@media (max-width: 768px) {
+  .property-table thead {
+    display: none;
+  }
+
+  .property-table,
+  .property-table tbody,
+  .property-table tr,
+  .property-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .property-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 4px;
+    background: #fff;
+  }
+
+  .property-table td {
+    text-align: right;
+    padding: 8px;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+    gap:12px;
+    display: flex;
+    font-size: 0.9rem;
+
+    justify-content: space-between;
+  }
+
+  .property-table td:last-child {
+    border-bottom: none;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .property-table td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+}
+
+.skeleton {
+  height: 20px;
+  width: 100%;
+  background: linear-gradient(-90deg, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

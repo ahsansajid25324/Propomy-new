@@ -1,0 +1,48 @@
+.discover-tools-list {
+  margin-top: 24px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.discover-tool-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.discover-tool-icon {
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.discover-tool-text {
+  font-size: 1.2rem;
+}
+.discover-section {
+  background-color: #16147f;
+  padding: 50px 0 50px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .discover-section {
+    padding: 20px 0 30px 0;
+  }
+  .discover-tool-item {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .discover-tool-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .discover-tool-text {
+    font-size: 0.95rem;
+  }
+}

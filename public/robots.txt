@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Allow: /free-trial
+Allow: /skip-trace
+Allow: /demo
+Allow: /getting-started
+Allow: /get-started
+Allow: /documentation
+Allow: /FAQ
+Allow: /release
+Allow: /terms-of-use
+Allow: /privacy-policy
+Allow: /calculators
+Allow: /calculators/*
+
+# Block Private Dashboards & Internal Endpoints
+Disallow: /investor/
+Disallow: /admin/
+Disallow: /realtor/
+Disallow: /login
+Disallow: /signup
+Disallow: /forget-password
+Disallow: /api/
+
+Sitemap: https://www.propomy.com/sitemap.xml

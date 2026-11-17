@@ -1,0 +1,178 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLazyQuery } from "@apollo/client/react";
+import { toast } from "react-toastify";
+import { GET_DEAL_ANALYSIS_REPORT } from "../../../apollo/graphql/queries/Reports";
+import PublicAddressAutocomplete, {
+  type AddressSuggestion,
+} from "../../../components/common/PublicAddressAutoComplete";
+import "../../../styles/ValuationReport.css";
+import type {
+  GetDealAnalysisReportData,
+  GetDealAnalysisReportVars,
+} from "../../../types/Reports";
+import { capitalize } from "../../../utils/StringUtils";
+
+const PRICE = 13;
+
+const INCLUDED = [
+  "Lender-grade AVM valuation estimate and comp-based sanity check",
+  "Rent estimates matched with estimated taxes, insurance, and HOA",
+  "Investment metrics: Cap Rate, GRM, Cash-on-Cash Return, and 1-yr/5-yr ROI",
+  "Advanced deal snapshots: DSCR, BRRRR refinance, and Fix & Flip margins",
+];
+
+const ADDRESS_HAS_HOUSE_NUMBER = /^\s*\d+[\w-]*\s+\S+/;
+
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+    <path d="m5 13 4.5 4.5L19 7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const DealReport: React.FC = () => {
+  const navigate = useNavigate();
+
+  const [address, setAddress] = useState("");
+  const [selected, setSelected] = useState<AddressSuggestion | null>(null);
+  const [touched, setTouched] = useState(false);
+
+  const [fetchReport, { loading: submitting }] = useLazyQuery<
+    GetDealAnalysisReportData,
+    GetDealAnalysisReportVars
+  >(GET_DEAL_ANALYSIS_REPORT, {
+    fetchPolicy: "network-only",
+  });
+
+  const trimmedAddress = address.trim();
+  const isValid =
+    trimmedAddress.length >= 6 &&
+    (selected !== null || ADDRESS_HAS_HOUSE_NUMBER.test(trimmedAddress));
+  const showError = touched && !isValid;
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setTouched(true);
+
+    if (!isValid) return;
+
+    const searchedAddress = address.trim();
+
+    try {
+      const { data } = await fetchReport({
+        variables: {
+          input: { address: searchedAddress },
+        },
+      });
+
+      const res = data?.getDealAnalysisReport;
+
+      if (res?.success && res?.requiresPayment && res?.stripeUrl) {
+        window.location.href = res.stripeUrl;
+      } else {
+        toast.error(
+          capitalize(res?.message) || "Property details could not be found.",
+        );
+      }
+    } catch (err: unknown) {
+      console.error("Deal analysis report error:", err);
+      toast.error((err as Error).message);
+    }
+  };
+
+  return (
+    <div className="vr-root">
+      <section className="vr-hero">
+        <div className="vr-hero-inner">
+          <button
+            type="button"
+            className="vr-back"
+            onClick={() => navigate("/reports")}
+          >
+            <span className="vr-back-arrow" aria-hidden="true">
+              &larr;
+            </span>
+            All reports
+          </button>
+
+          <h1 className="vr-hero-title">Deal Analysis Report</h1>
+          <p className="vr-hero-sub">
+            Complete property valuation and rental income analysis run through
+            Propomy&rsquo;s investment calculators (ROI, Cap Rate, Cash-on-Cash,
+            DSCR, and BRRRR).
+          </p>
+        </div>
+      </section>
+
+      <main className="vr-main">
+        <form className="vr-card" onSubmit={handleSubmit} noValidate>
+          <div className="vr-field">
+            <PublicAddressAutocomplete
+              value={address}
+              reportType="report_deal_analysis"
+              disabled={submitting}
+              onChange={(next) => {
+                setAddress(next);
+                setSelected(null);
+              }}
+              onSelect={(suggestion) => setSelected(suggestion)}
+              autoFocus
+              error={
+                showError
+                  ? "Enter a complete street address, including house number, street, city, and state, so we can analyze the deal."
+                  : undefined
+              }
+            />
+          </div>
+
+          <section className="vr-included" aria-labelledby="vr-included-title">
+            <h2 className="vr-included-title" id="vr-included-title">
+              What&rsquo;s included in this report
+            </h2>
+            <ul className="vr-included-list">
+              {INCLUDED.map((item) => (
+                <li className="vr-included-item" key={item}>
+                  <span className="vr-included-check" aria-hidden="true">
+                    <CheckIcon />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <div className="vr-total">
+            <span className="vr-total-label">Total price</span>
+            <span className="vr-total-value">${PRICE}</span>
+          </div>
+
+          <button
+            className="vrr-btn-is-primary vr-submit"
+            type="submit"
+            disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                <span
+                  className="spinner-border spinner-border-sm me-0"
+                  aria-hidden="true"
+                ></span>
+                <span role="status">Analyzing deal…</span>
+              </>
+            ) : (
+              <>
+                Analyze Deal
+                <span className="vr-submit-arrow ms-0" aria-hidden="true">
+                  &rarr;
+                </span>
+              </>
+            )}
+          </button>
+          <p className="vr-fine">Instant delivery · PDF download included</p>
+        </form>
+      </main>
+    </div>
+  );
+};
+
+export default DealReport;

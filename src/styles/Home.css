@@ -1,0 +1,1440 @@
+.propomy-page *,
+.propomy-page *::before,
+.propomy-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.propomy-page {
+  --ink: #0a0e1a;
+  --blue: #1a5fd4;
+  --blue-dark: #0f3e9c;
+  --blue-soft: #e9f1ff;
+  --teal: #00c9a7;
+  --teal-soft: #e4fbf6;
+  --canvas: #f7f9fc;
+  --white: #ffffff;
+  --line: #e3e8f2;
+  --line-soft: #edf1f8;
+  --slate: #5a6478;
+  --slate-light: #8a93a8;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 30px;
+
+  --shadow-sm: 0 2px 10px rgba(10, 14, 26, 0.05);
+  --shadow-md: 0 14px 44px rgba(10, 14, 26, 0.1);
+  --shadow-lg: 0 32px 90px rgba(10, 14, 26, 0.16);
+}
+
+.propomy-page {
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
+
+.propomy-page h1,
+.propomy-page h2,
+.propomy-page h3,
+.propomy-page h4,
+.propomy-page .display {
+  font-optical-sizing: none;
+}
+.propomy-page .mono {
+  font-feature-settings: "tnum";
+}
+
+.propomy-page .wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.propomy-page a {
+  color: inherit;
+}
+
+/* ── BUTTONS ── */
+.propomy-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+  white-space: nowrap;
+}
+.propomy-page .btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(26, 95, 212, 0.28);
+}
+.propomy-page .btn-primary:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+.propomy-page .btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.propomy-page .btn-ghost:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+.propomy-page .btn-lg {
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: var(--r-lg);
+}
+.propomy-page .btn-arrow svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s ease;
+}
+.propomy-page .btn:hover .btn-arrow svg {
+  transform: translateX(3px);
+}
+
+.propomy-page .nav-links a.active {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.propomy-page .nav-mobile-menu a.active {
+  color: var(--blue);
+  font-weight: 700;
+}
+/* ── ANNOUNCEMENT BAR ── */
+.propomy-page .announce {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-size: 13.5px;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.propomy-page .announce a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+.propomy-page .announce a:hover {
+  text-decoration: underline;
+}
+.propomy-page .announce .pill {
+  background: var(--teal);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+/* ── NAV ── */
+.propomy-page nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.propomy-page .nav-inner {
+  height: 68px;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.propomy-page .brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.propomy-page .brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.propomy-page .brand-mark svg {
+  width: 19px;
+  height: 19px;
+  fill: #fff;
+}
+.propomy-page .brand-name {
+  font-optical-sizing: none;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: 0px;
+}
+.propomy-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+.propomy-page .nav-links a {
+  text-decoration: none;
+  color: var(--slate);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.propomy-page .nav-links a:hover {
+  color: var(--blue);
+}
+.propomy-page .nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.propomy-page .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+}
+.propomy-page .nav-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--ink);
+}
+
+/* mobile dropdown menu (hidden on desktop) */
+.propomy-page .nav-mobile-menu {
+  display: none;
+}
+
+/* ── HERO ── */
+.propomy-page .hero {
+  position: relative;
+  padding: 78px 0 0;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      720px 460px at 50% -120px,
+      rgba(26, 95, 212, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(
+      560px 380px at 84% 30px,
+      rgba(0, 201, 167, 0.12),
+      transparent 70%
+    ),
+    var(--canvas);
+}
+.propomy-page .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--slate);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 15px;
+  border-radius: 100px;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow-sm);
+}
+.propomy-page .hero-eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.18);
+}
+.propomy-page .hero h1 {
+  font-size: clamp(38px, 6.2vw, 68px);
+  font-weight: 640;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  max-width: 900px;
+  margin: 0 auto 22px;
+}
+.propomy-page .hero h1 .grad {
+  background: linear-gradient(96deg, var(--blue) 10%, var(--teal) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.propomy-page .hero-sub {
+  font-size: clamp(16px, 1.9vw, 19px);
+  color: var(--slate);
+  font-weight: 400;
+  max-width: 620px;
+  margin: 0 auto 34px;
+  line-height: 1.6;
+}
+.propomy-page .hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.propomy-page .hero-note {
+  font-size: 13px;
+  color: var(--slate-light);
+  margin-bottom: 54px;
+}
+.propomy-page .hero-note strong {
+  color: var(--slate);
+  font-weight: 600;
+}
+
+/* ── REPORT STRIP (at-a-glance) ── */
+.propomy-page .feat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 1px;
+  max-width: 1180px;
+  margin: 0 auto 58px;
+  /* background: var(--line); */
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.propomy-page .feat-box {
+  background: #fff;
+  padding: 20px 14px 18px;
+  text-align: center;
+  transition: background 0.18s;
+  text-decoration: none;
+  display: block;
+}
+.propomy-page .feat-box:hover {
+  background: var(--canvas);
+}
+.propomy-page .feat-ic {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.propomy-page .feat-ic svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--blue);
+}
+.propomy-page .feat-t {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+.propomy-page .feat-d {
+  font-size: 11.5px;
+  color: var(--slate);
+  line-height: 1.35;
+}
+.propomy-page .feat-price {
+  display: inline-block;
+  margin-top: 9px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+/* Property Deep Dive — 7th summary card (bundle) */
+.propomy-page .pdd-feat-box {
+  position: relative;
+}
+/* .propomy-page .pdd-feat-box:hover {
+  background: linear-gradient(180deg, var(--canvas), var(--blue-soft));
+} */
+.propomy-page .pdd-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  padding: 3px 7px;
+  border-radius: 100px;
+}
+.propomy-page .pdd-feat-ic {
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+.propomy-page .pdd-feat-ic svg {
+  stroke: #fff;
+}
+.propomy-page .pdd-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  padding: 2px 10px;
+  border-radius: 100px;
+}
+
+/* ── HERO PRODUCT MOCKUP (signature) ── */
+.propomy-page .cockpit-frame {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 24px 6px;
+  position: relative;
+  z-index: 3;
+}
+.propomy-page .cockpit {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.propomy-page .cockpit-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--canvas);
+}
+.propomy-page .cockpit-bar .dots {
+  display: flex;
+  gap: 6px;
+}
+.propomy-page .cockpit-bar .dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: block;
+  background: var(--line);
+}
+.propomy-page .cockpit-bar .addr {
+  margin-left: 8px;
+  font-size: 13px;
+  color: var(--slate);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 5px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.propomy-page .cockpit-bar .addr svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--teal);
+  fill: none;
+  stroke-width: 2;
+}
+.propomy-page .cockpit-bar .tag {
+  margin-left: auto;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-soft);
+  border-radius: 100px;
+  padding: 5px 12px;
+}
+.propomy-page .cockpit-body {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+}
+.propomy-page .cockpit-left {
+  padding: 26px 26px 30px;
+  border-right: 1px solid var(--line-soft);
+  text-align: left;
+}
+.propomy-page .cockpit-right {
+  padding: 22px 24px;
+  text-align: left;
+  background: linear-gradient(180deg, #fff, var(--canvas));
+}
+
+.propomy-page .val-label {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  font-weight: 600;
+}
+.propomy-page .val-big {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin: 6px 0 4px;
+}
+.propomy-page .val-conf {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 4px 11px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+.propomy-page .val-conf .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.propomy-page .range {
+  margin-top: 6px;
+}
+.propomy-page .range-track {
+  height: 8px;
+  border-radius: 100px;
+  background: linear-gradient(
+    90deg,
+    var(--line),
+    var(--blue-soft),
+    var(--line)
+  );
+  position: relative;
+}
+.propomy-page .range-fill {
+  position: absolute;
+  top: 0;
+  height: 8px;
+  border-radius: 100px;
+  left: 22%;
+  right: 24%;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+.propomy-page .range-pin {
+  position: absolute;
+  top: -4px;
+  left: 52%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--blue);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(-50%);
+}
+.propomy-page .range-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  font-size: 12px;
+  color: var(--slate);
+}
+.propomy-page .range-legend .mono {
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.propomy-page .mini-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.propomy-page .mini-metric {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 12px 13px;
+  background: #fff;
+}
+.propomy-page .mini-metric .k {
+  font-size: 11.5px;
+  color: var(--slate);
+}
+.propomy-page .mini-metric .v {
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+.propomy-page .mini-metric .v.pos {
+  color: var(--teal);
+}
+.propomy-page .cockpit-right .rt-title {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ── TRUST LINE ── */
+.propomy-page .trust {
+  background: var(--white);
+  padding: 34px 0 10px;
+  text-align: center;
+}
+.propomy-page .trust p {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--slate-light);
+  font-weight: 600;
+}
+.propomy-page .trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.propomy-page .trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--slate);
+  font-weight: 500;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 100px;
+  padding: 9px 16px;
+}
+.propomy-page .trust-chip svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--blue);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ── FEATURE SECTIONS ── */
+.propomy-page .features {
+  padding: 40px 0 20px;
+}
+.propomy-page .feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 56px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.propomy-page .feature:first-child {
+  border-top: none;
+}
+.propomy-page .feature.flip .feature-visual {
+  order: 2;
+}
+.propomy-page .feature.flip .feature-copy {
+  order: 1;
+}
+.propomy-page .feature-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.propomy-page .feature-num .ey {
+  color: var(--slate-light);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.propomy-page .feature h2 {
+  font-size: clamp(26px, 3.3vw, 38px);
+  font-weight: 620;
+  letter-spacing: -0.4px;
+  line-height: 1.16;
+  margin-bottom: 16px;
+}
+.propomy-page .feature-desc {
+  font-size: 16.5px;
+  color: var(--slate);
+  margin-bottom: 22px;
+  line-height: 1.65;
+}
+.propomy-page .feature-list {
+  list-style: none;
+  margin-bottom: 26px;
+}
+.propomy-page .feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 6px 0;
+  font-size: 15px;
+  color: var(--ink);
+}
+.propomy-page .feature-list li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.propomy-page .feature-foot {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.propomy-page .feature-stat {
+  display: flex;
+  flex-direction: column;
+}
+.propomy-page .feature-stat .fs-num {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+.propomy-page .feature-stat .fs-lbl {
+  font-size: 12.5px;
+  color: var(--slate);
+}
+.propomy-page .feature-link {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 14.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.propomy-page .feature-link svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.18s;
+}
+.propomy-page .feature-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── FEATURE VISUAL CARDS (built mockups) ── */
+.propomy-page .visual {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.propomy-page .visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.propomy-page .v-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.propomy-page .v-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.propomy-page .v-title .ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.propomy-page .v-title .ic svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--blue);
+}
+.propomy-page .v-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal);
+  background: var(--teal-soft);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* valuation visual */
+.propomy-page .vv-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.propomy-page .vv-big {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.propomy-page .vv-delta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+}
+.propomy-page .vv-bar {
+  height: 7px;
+  border-radius: 100px;
+  background: var(--line-soft);
+  margin: 16px 0 8px;
+  position: relative;
+}
+.propomy-page .vv-bar i {
+  position: absolute;
+  height: 7px;
+  border-radius: 100px;
+  left: 18%;
+  right: 20%;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+.propomy-page .vv-bar b {
+  position: absolute;
+  top: -3px;
+  left: 55%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--blue);
+}
+.propomy-page .vv-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--slate);
+}
+
+/* comparables visual */
+.propomy-page .cmp-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.propomy-page .cmp-card {
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 10px;
+  background: #fff;
+}
+.propomy-page .cmp-card .cc-a {
+  font-size: 11px;
+  color: var(--slate);
+}
+.propomy-page .cmp-card .cc-v {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.propomy-page .cmp-card .cc-s {
+  font-size: 10.5px;
+  color: var(--slate-light);
+  margin-top: 4px;
+}
+.propomy-page .cmp-card.win {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 2px var(--teal-soft);
+}
+.propomy-page .cmp-card.win .cc-v {
+  color: var(--teal);
+}
+
+/* owner & contact / calculator-style visual */
+.propomy-page .calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 14px;
+}
+.propomy-page .calc-chip {
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 11px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate);
+  background: #fff;
+  transition: all 0.18s;
+}
+.propomy-page .calc-chip.active {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.propomy-page .calc-chip span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+}
+.propomy-page .calc-chip span svg {
+  width: 17px;
+  height: 17px;
+}
+.propomy-page .calc-out {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px;
+  background: var(--canvas);
+}
+.propomy-page .calc-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 13px;
+  color: var(--slate);
+}
+.propomy-page .calc-line .mono {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.propomy-page .calc-line.total {
+  border-top: 1px dashed var(--line);
+  margin-top: 6px;
+  padding-top: 10px;
+}
+.propomy-page .calc-line.total .mono {
+  color: var(--teal);
+  font-size: 18px;
+}
+
+/* dashboard-style visual (market stats) */
+.propomy-page .dash-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.propomy-page .dtile {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 13px;
+  background: #fff;
+}
+.propomy-page .dtile .dk {
+  font-size: 11.5px;
+  color: var(--slate);
+}
+.propomy-page .dtile .dv {
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.propomy-page .dtile .dv.pos {
+  color: var(--teal);
+}
+.propomy-page .dchart {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px;
+  background: var(--canvas);
+}
+.propomy-page .dchart-h {
+  font-size: 11.5px;
+  color: var(--slate);
+  margin-bottom: 12px;
+}
+.propomy-page .bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 74px;
+}
+.propomy-page .bars i {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--blue), rgba(26, 95, 212, 0.35));
+}
+.propomy-page .bars i.hl {
+  background: linear-gradient(180deg, var(--teal), rgba(0, 201, 167, 0.4));
+}
+
+/* Property Deep Dive — detailed section (bundle) */
+.propomy-page .pdd-badge-inline {
+  display: inline-block;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 4px;
+}
+.propomy-page .pdd-preview {
+  background: linear-gradient(180deg, #fff, var(--blue-soft));
+}
+.propomy-page .ic.pdd-ic {
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+.propomy-page .ic.pdd-ic svg {
+  stroke: #fff;
+}
+.propomy-page .pdd-modules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.propomy-page .pdd-module-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px 15px;
+  text-align: left;
+  background: #fff;
+}
+.propomy-page .pdd-module-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.propomy-page .pdd-module-ic svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--blue);
+}
+.propomy-page .pdd-module-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ── TESTIMONIALS ── */
+.propomy-page .reviews {
+  background: var(--canvas);
+  padding: 84px 0;
+}
+.propomy-page .reviews-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 46px;
+}
+.propomy-page .eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.propomy-page .reviews-head h2 {
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 620;
+  letter-spacing: -0.4px;
+}
+.propomy-page .reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.propomy-page .review {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+}
+.propomy-page .review .stars {
+  color: #f5a623;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.propomy-page .review p {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.propomy-page .review .who {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.propomy-page .review .av {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-optical-sizing: none;
+  font-size: 15px;
+}
+.propomy-page .review .nm {
+  font-size: 14px;
+  font-weight: 600;
+}
+.propomy-page .review .rl {
+  font-size: 12.5px;
+  color: var(--slate);
+}
+
+/* ── FINAL CTA ── */
+.propomy-page .final {
+  padding: 96px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      700px 380px at 50% 0,
+      rgba(0, 201, 167, 0.16),
+      transparent 70%
+    ),
+    var(--ink);
+}
+.propomy-page .final h2 {
+  font-size: clamp(30px, 4.4vw, 50px);
+  font-weight: 640;
+  color: #fff;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.propomy-page .final p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.66);
+  max-width: 520px;
+  margin: 0 auto 34px;
+}
+.propomy-page .final .btn-ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+}
+.propomy-page .final .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+.propomy-page .final-badges {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.propomy-page .final-badges span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.propomy-page .final-badges svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--teal);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ── FOOTER ── */
+.propomy-page footer {
+  background: #060912;
+  padding: 56px 0 30px;
+}
+.propomy-page .foot-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.propomy-page .foot-brand .brand-name {
+  color: #fff;
+}
+.propomy-page .foot-brand p.addr {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.8;
+  margin-top: 14px;
+}
+.propomy-page .foot-brand p.sup {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 8px;
+}
+.propomy-page .foot-brand p.sup a {
+  color: var(--teal);
+  text-decoration: none;
+}
+.propomy-page .foot-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.propomy-page .foot-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s;
+}
+.propomy-page .foot-social a:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.propomy-page .foot-social svg {
+  width: 17px;
+  height: 17px;
+  fill: rgba(255, 255, 255, 0.7);
+}
+.propomy-page .foot-cols {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.propomy-page .foot-col h4 {
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+.propomy-page .foot-col a {
+  display: block;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13.5px;
+  margin-bottom: 11px;
+  transition: color 0.18s;
+}
+.propomy-page .foot-col a:hover {
+  color: #fff;
+}
+.propomy-page .foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 24px;
+}
+.propomy-page .foot-bottom p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.32);
+}
+.propomy-page .foot-bottom .legal {
+  display: flex;
+  gap: 22px;
+}
+.propomy-page .foot-bottom .legal a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+.propomy-page .foot-bottom .legal a:hover {
+  color: #fff;
+}
+
+/* ── SCROLL REVEAL ── */
+.propomy-page .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.propomy-page .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .propomy-page .feature {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .propomy-page .feature.flip .feature-visual {
+    order: 0;
+  }
+  .propomy-page .feature.flip .feature-copy {
+    order: 0;
+  }
+  .propomy-page .cockpit-body {
+    grid-template-columns: 1fr;
+  }
+  .propomy-page .cockpit-left {
+    border-right: none;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .propomy-page .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .propomy-page .nav-links {
+    display: none;
+  }
+  .propomy-page .nav-toggle {
+    display: flex;
+  }
+  .propomy-page .nav-inner {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+  .propomy-page .brand-name {
+    font-size: 18px;
+  }
+  .propomy-page .brand img {
+    width: 30px;
+    height: 30px;
+  }
+  .propomy-page .nav-cta {
+    gap: 8px;
+  }
+  .propomy-page .nav-cta .btn-primary {
+    padding: 9px 14px;
+    font-size: 13.5px;
+  }
+
+  .propomy-page .nav-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-bottom: 1px solid var(--line-soft);
+    box-shadow: var(--shadow-md);
+    padding: 6px 16px 14px;
+  }
+  .propomy-page .nav-mobile-menu a {
+    padding: 12px 4px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-soft);
+    cursor: pointer;
+  }
+  .propomy-page .nav-mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .propomy-page .hero {
+    padding-top: 52px;
+  }
+  .propomy-page .wrap {
+    padding: 0 18px;
+  }
+  .propomy-page .cockpit-frame {
+    padding: 0 18px 6px;
+  }
+  .propomy-page .cmp-list {
+    grid-template-columns: 1fr;
+  }
+  .propomy-page .pdd-modules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .propomy-page .feat-strip {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .propomy-page .pdd-modules {
+    grid-template-columns: 1fr;
+  }
+  .propomy-page .wrap {
+    padding: 0 16px;
+  }
+  .propomy-page .cockpit-frame {
+    padding: 0 16px 6px;
+  }
+
+  .propomy-page .hero-actions {
+    flex-direction: column;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .propomy-page * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .propomy-page .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .propomy-page {
+    scroll-behavior: auto;
+  }
+}

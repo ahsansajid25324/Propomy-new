@@ -1,0 +1,245 @@
+.coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  background-color: #f7f8fa;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: 550;
+}
+
+.main-heading {
+  font-size: 24px;
+  font-weight: 550;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sub-heading {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.description {
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.launch-notification-container {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 95%;
+}
+
+.notification-heading {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.notification-subheading {
+  color: #4e545f;
+  margin-bottom: 20px;
+}
+
+.email-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background: var(--White, #fff);
+  box-shadow: 0 20px 70px 0 rgba(0, 39, 96, 0.12);
+  width: 300px;
+  margin-right: 10px;
+}
+
+.notify-button {
+  padding: 10px 20px;
+  border-radius: 16px;
+  border: none;
+  background-color: #0067ff;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #0056d4;
+  }
+}
+
+.footer {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.coming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.coming-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(33, 80, 254, 0.06);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  transition: all 0.2s ease-in-out;
+}
+.coming-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(33, 80, 254, 0.1);
+}
+.coming-card .coming-icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+.coming-card h4 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.coming-card ul {
+  margin: 0;
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+.coming-card li {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .coming-soon-container {
+    padding: 20px 6px;
+    background-color: #f7f8fa;
+    font-family: sans-serif;
+    color: #333;
+  }
+
+  .coming-grid {
+    grid-template-columns: 1fr;
+    width: 95%;
+    gap: 1rem;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .coming-card .service-icon {
+    font-size: 24px;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 6px;
+  }
+
+  .company-name {
+    font-size: 18px;
+    font-weight: 550;
+  }
+
+  .main-heading {
+    font-size: 18px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
+
+  .sub-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .launch-notification-container {
+    text-align: center;
+    padding: 0 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .notification-heading {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .notification-subheading {
+    color: #4e545f;
+    margin-bottom: 10px;
+  }
+
+  .email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .email-input {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    background: var(--White, #fff);
+    box-shadow: 0 20px 70px 0 rgba(0, 39, 96, 0.12);
+    width: 300px;
+    margin-right: 10px;
+  }
+
+  .notify-button {
+    padding: 10px 20px;
+    border-radius: 16px;
+    margin-top: 14px;
+    border: none;
+    background-color: #0067ff;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #0056d4;
+    }
+  }
+}

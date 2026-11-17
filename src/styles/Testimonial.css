@@ -1,0 +1,82 @@
+.testimonials-section {
+  background: #f2f5fa;
+  padding: 50px 0;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+.review-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.spacing-top {
+  margin-top: 24px;
+}
+.review-text {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.star-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background: #1d2b8f;
+}
+
+.profile-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-location {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 20px 0 30px 0;
+  }
+  .review-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .star-circle {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 0px;
+  }
+  .profile-section {
+    margin-top: 10px;
+  }
+  .spacing-top {
+    margin-top: 16px;
+  }
+}

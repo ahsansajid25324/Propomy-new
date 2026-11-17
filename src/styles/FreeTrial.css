@@ -1,0 +1,78 @@
+.pricing-card {
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  border-color: #3b71fe;
+  box-shadow: 0 20px 40px rgba(59, 113, 254, 0.15);
+  cursor: pointer;
+}
+
+.recommended-badge {
+  background-color: #5cb85c;
+  color: white;
+  padding: 4px 15px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  z-index: 10;
+}
+
+.price-text {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #3b71fe;
+  line-height: 1;
+}
+
+.api-calls {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-list li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.check-icon {
+  color: #3b71fe;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .price-text {
+    font-size: 2.2rem;
+  }
+
+  .recommended-badge {
+    right: 10px;
+    font-size: 0.7rem;
+  }
+
+  .pricing-card:hover {
+    transform: none;
+  }
+}

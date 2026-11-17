@@ -1,0 +1,273 @@
+/* ReleaseNotes.css
+   Styles only for elements unique to the Release Notes page.
+   Nav, footer, and hero base styles are reused from Home.css / ReportHub.css. */
+
+:root {
+  --rn-blue: #3457ff;
+  --rn-blue-soft: #eef1ff;
+  --rn-green: #22c55e;
+  --rn-green-soft: #e9f9ee;
+  --rn-ink: #10131a;
+  --rn-ink-soft: #565b6b;
+  --rn-border: #e5e7ef;
+  --rn-panel: #f6f7fb;
+  --rn-cta-bg: #0b0f1a;
+}
+
+.rn-hero-title,
+.rn-hero-sub {
+  margin: 0;
+}
+
+/* ── Layout ── */
+
+.rn-grid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .rn-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ── Sidebar / releases list ── */
+
+.rn-sidebar-col {
+  position: sticky;
+  top: 96px;
+}
+
+.rn-sidebar-header {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rn-ink-soft);
+  margin-bottom: 12px;
+}
+
+.rn-sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.rn-sidebar-link {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 0 10px 16px;
+  border-left: 2px solid var(--rn-border);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.rn-sidebar-link-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--rn-ink);
+}
+
+.rn-sidebar-link-date {
+  font-size: 12.5px;
+  color: var(--rn-ink-soft);
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.rn-sidebar-link.active {
+  border-left-color: var(--rn-blue);
+}
+
+.rn-sidebar-link.active .rn-sidebar-link-title {
+  color: var(--rn-blue);
+}
+
+@media (max-width: 900px) {
+  .rn-sidebar-col {
+    position: static;
+  }
+  .rn-sidebar-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .rn-sidebar-link {
+    border-left: none;
+    border-bottom: 2px solid var(--rn-border);
+    padding: 6px 4px 8px;
+  }
+  .rn-sidebar-link.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--rn-blue);
+  }
+}
+
+/* ── Release entry ── */
+
+.rn-content-col {
+  min-width: 0;
+}
+
+.rn-release {
+  padding-bottom: 40px;
+  scroll-margin-top: 96px;
+}
+
+.rn-release-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rn-version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--rn-blue-soft);
+  color: var(--rn-blue);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.rn-version-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rn-blue);
+  display: inline-block;
+}
+
+.rn-release-date {
+  font-size: 13.5px;
+  color: var(--rn-ink-soft);
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.rn-release-title {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--rn-ink);
+  margin: 0 0 16px;
+}
+
+.rn-release-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--rn-ink-soft);
+  max-width: 62ch;
+  margin: 0 0 28px;
+}
+
+.rn-reports-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rn-ink-soft);
+  margin-bottom: 12px;
+}
+
+.rn-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .rn-reports-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rn-report-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--rn-panel);
+  border: 1px solid var(--rn-border);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rn-ink);
+}
+
+.rn-report-check {
+  flex-shrink: 0;
+  color: var(--rn-green);
+  background: var(--rn-green-soft);
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* ── Divider + CTA ── */
+
+.rn-divider {
+  height: 1px;
+  background: var(--rn-border);
+  margin: 8px 0 32px;
+}
+
+.rn-cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--rn-cta-bg);
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+
+.rn-cta-title {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.rn-cta-sub {
+  color: #a4a9bb;
+  font-size: 14.5px;
+  margin: 0;
+}
+
+.rn-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--rn-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.rn-cta-btn:hover {
+  opacity: 0.88;
+}
+
+@media (max-width: 640px) {
+  .rn-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

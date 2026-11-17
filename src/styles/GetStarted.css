@@ -1,0 +1,684 @@
+/* -------------------------------------------------------------------------- */
+/* 1. ROOT VARIABLES & GLOBAL DEFAULTS                                        */
+/* -------------------------------------------------------------------------- */
+:root {
+  --primary: #0066ff;
+  --primary-hover: #0052cc;
+  --primary-glow: rgba(0, 102, 255, 0.15);
+  --navy: #09111e;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f8fafc;
+
+  /* CTA / dark-section background — change this one line to recolor the CTA */
+  --bg-dark-section: #0c1440;
+
+  /* Propomy Brand Variables for Hero Section */
+  --propomy-navy: #0a1628;
+  --propomy-accent: #0066ff;
+  --propomy-accent-lt: #0066ff;
+  --propomy-white: #ffffff;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --shadow-sm: 0 2px 8px rgba(148, 163, 184, 0.05);
+  --shadow-md: 0 12px 34px rgba(148, 163, 184, 0.12);
+  --shadow-lg: 0 24px 48px rgba(9, 17, 30, 0.06);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. HERO SECTION & BUTTONS                                                  */
+/* -------------------------------------------------------------------------- */
+.lp-gs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+
+.lp-gs-btn-primary {
+  background: var(--propomy-accent);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(45, 125, 210, 0.32);
+}
+
+.lp-gs-btn-primary:hover {
+  background: var(--propomy-accent-lt);
+  box-shadow: 0 4px 20px rgba(45, 125, 210, 0.45);
+  transform: translateY(-1px);
+}
+
+.lp-gs-btn-hero {
+  padding: 13px 32px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.lp-gs-hero {
+  position: relative;
+  background: var(--propomy-navy);
+  padding: 72px 24px 140px; /* Space for the card that overlaps the bottom half */
+  text-align: center;
+  overflow: hidden;
+}
+
+.lp-gs-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: #16147f;
+}
+
+.lp-gs-hero-content {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.lp-gs-hero-badge {
+  display: inline-block;
+  background: rgba(45, 125, 210, 0.2);
+  border: 1px solid rgba(45, 125, 210, 0.4);
+  color: var(--propomy-accent-lt);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.lp-gs-hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--propomy-white);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+
+.lp-gs-hero-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. GENERAL BUTTONS                                                         */
+/* -------------------------------------------------------------------------- */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  font-size: 0.925rem;
+  padding: 12px 26px;
+  letter-spacing: -0.01em;
+}
+
+.lp-btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.lp-btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
+}
+
+.lp-btn-hero {
+  padding: 16px 38px;
+  font-size: 1rem;
+}
+
+/* Styling for the icon box container */
+.lp-strip-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eff6ff; /* Soft blue background badge */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+/* Styling for the SVG icons inside the icon box */
+.lp-strip-icon-box .lp-strip-icon,
+.lp-strip-icon {
+  width: 22px;
+  height: 22px;
+  color: #2563eb; /* Primary blue icon color */
+  stroke: #2563eb; /* Ensures Lucide SVG strokes match */
+}
+/* -------------------------------------------------------------------------- */
+/* 4. FLOATING FEATURE STRIP (IN-FLOW / OVERLAP VIA NEGATIVE MARGIN)          */
+/* -------------------------------------------------------------------------- */
+.lp-features-strip-section {
+  background: var(--bg-subtle);
+  position: relative;
+  width: 100%;
+  display: flow-root; /* Contains the pulled-up card, keeps its height, no shadow clipping */
+  z-index: 20;
+}
+
+.lp-features-strip-container {
+  position: relative;      /* stays in the document flow so it reserves real height */
+  z-index: 20;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: -90px auto 0;    /* pulls card up over the hero; centered horizontally */
+}
+
+.lp-features-strip {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 32px 16px;
+  border: 1px solid var(--border-light);
+}
+
+/* 1. Set smooth transition and cursor for cards */
+.lp-strip-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. HOVER EFFECT: Lift card, scale icon box, & add glow */
+.lp-strip-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 102, 255, 0.03);
+}
+
+.lp-strip-card:hover .lp-strip-icon-box {
+  background: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 102, 255, 0.25);
+}
+
+.lp-strip-card:hover .lp-strip-icon-box svg,
+.lp-strip-card:hover .lp-strip-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.lp-strip-card:hover .lp-strip-title {
+  color: var(--primary);
+}
+
+/* 3. SELECTED STATE: Style applied when a card is clicked */
+.lp-strip-card.active {
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.15);
+  border: 1px solid var(--primary);
+}
+
+.lp-strip-card.active .lp-strip-icon-box {
+  background: var(--primary);
+}
+
+.lp-strip-card.active .lp-strip-icon-box svg,
+.lp-strip-card.active .lp-strip-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.lp-strip-card.active .lp-strip-title {
+  color: var(--primary);
+}
+
+/* Ensure smooth icon color and transform transitions */
+.lp-strip-icon-box {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.lp-strip-icon-box svg,
+.lp-strip-icon {
+  transition:
+    color 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.lp-strip-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #edf4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.lp-strip-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.lp-strip-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. VIDEO SECTION                                                           */
+/* -------------------------------------------------------------------------- */
+.lp-video-section {
+  padding: 60px 20px; /* No more giant padding hack — strip now reserves its own height */
+  background: var(--bg-subtle);
+  text-align: center;
+}
+
+.lp-video-header {
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.lp-video-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+.lp-video-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  line-height: 0;
+}
+
+.lp-video-wrapper video {
+  width: 100%;
+  height: auto;
+  max-height: 485px;
+  display: block;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 6. HOW IT WORKS (Timeline Flow)                                           */
+/* -------------------------------------------------------------------------- */
+.lp-how {
+  padding: 60px 20px;
+  background: var(--bg-surface);
+}
+
+.lp-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.lp-section-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.lp-section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.lp-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lp-step {
+  display: flex;
+  gap: 24px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  align-items: flex-start;
+  transition: var(--transition-smooth);
+}
+
+.lp-step:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.lp-step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.2);
+}
+
+.lp-step-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.lp-step-body p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 7. BOTTOM CTA SECTION                                                      */
+/* -------------------------------------------------------------------------- */
+.lp-cta {
+  position: relative;
+  padding: 84px 20px;
+  background: var(--bg-dark-section);
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle dotted grid, faded toward the edges */
+.lp-cta-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 40%, #000 40%, transparent 100%);
+}
+
+/* Ambient blue glows */
+.lp-cta-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+.lp-cta-glow-1 {
+  width: 380px;
+  height: 380px;
+  top: -110px;
+  right: -50px;
+  background: rgba(0, 102, 255, 0.30);
+}
+.lp-cta-glow-2 {
+  width: 320px;
+  height: 320px;
+  bottom: -130px;
+  left: -70px;
+  background: rgba(0, 102, 255, 0.16);
+}
+
+.lp-cta-content {
+  position: relative;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.lp-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(0, 102, 255, 0.12);
+  border: 1px solid rgba(0, 102, 255, 0.35);
+  color: #7eb0ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.lp-cta h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.lp-cta p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 34px;
+  line-height: 1.6;
+}
+
+.lp-cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* Scoped CTA buttons — auto width (fixes the 60% bug), consistent sizing */
+.lp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 32px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.lp-cta-btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.35);
+}
+.lp-cta-btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.5);
+}
+.lp-cta-btn-primary svg {
+  transition: transform 0.25s ease;
+}
+.lp-cta-btn-primary:hover svg {
+  transform: translateX(4px);
+}
+
+.lp-cta-btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+.lp-cta-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Trust stats row */
+.lp-cta-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.lp-cta-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lp-cta-stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+.lp-cta-stat-label {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+.lp-cta-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lp-cta-note {
+  font-size: 0.85rem !important;
+  color: #64748b !important;
+  margin-bottom: 0 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 8. RESPONSIVE MEDIA QUERIES                                               */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .lp-features-strip {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 28px;
+  }
+
+  .lp-strip-card:nth-child(3)::after {
+    display: none;
+  }
+  /* No video-section padding hack needed — strip reserves its own height now */
+}
+
+@media (max-width: 768px) {
+  .lp-gs-hero {
+    padding: 48px 16px 80px;
+  }
+
+  .lp-video-header {
+    margin: 0 auto 32px;
+  }
+
+  .lp-gs-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .lp-gs-btn-hero {
+    width: 100%;
+  }
+
+  .lp-features-strip-container {
+    margin-top: -50px; /* smaller overlap on mobile */
+  }
+
+  .lp-how {
+    padding: 40px 20px;
+  }
+  .lp-section-header {
+    margin: 0 auto 32px;
+  }
+
+  .lp-features-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .lp-strip-card:not(:last-child)::after {
+    display: none;
+  }
+
+  .lp-video-section {
+    padding: 40px 20px; /* no more padding-top: 770px */
+  }
+
+  .lp-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .lp-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lp-cta-btn {
+    width: 100%;
+  }
+  .lp-cta-stats {
+    gap: 16px;
+  }
+  .lp-cta-divider {
+    display: none;
+  }
+}

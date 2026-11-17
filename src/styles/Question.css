@@ -1,0 +1,73 @@
+.faq-section {
+  background: #18147f;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.question-layout {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.tick-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+.tick-circle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.faq-question {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.img-question {
+  margin-right: auto;
+    max-width: 90%;
+}
+@media (max-width: 765px) {
+  .faq-section {
+    padding: 30px 0 30px 0;
+  }
+  .question-layout {
+    flex-direction: column;
+  }
+  .set-space {
+    margin-top: 20px;
+  }
+  .faq-question {
+    font-size: 0.95rem;
+  }
+
+  .tick-circle {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-right: 8px;
+  }
+  .tick-circle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .row.no-horizontal-padding > * {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .img-question {
+    max-width: 100%;
+  }
+}

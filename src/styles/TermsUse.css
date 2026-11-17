@@ -1,0 +1,242 @@
+/* Terms of Use Page Styles */
+
+/* Section & Headers */
+.tou-section {
+  padding: 32px 0;
+  border-bottom: 1px solid #e6ebf2;
+}
+
+.tou-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e6ebf2;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #0f172a;
+}
+
+.tou-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a5fd4;
+}
+
+.tou-h3 {
+  margin: 20px 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.tou-p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.72;
+  color: #475569;
+}
+
+.tou-p-no-margin {
+  margin-bottom: 0;
+}
+
+.tou-ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: #475569;
+}
+
+.tou-li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.tou-li-last {
+  margin-bottom: 0;
+}
+
+/* Callouts & Banners */
+.tou-callout {
+  padding: 18px 20px;
+  margin: 4px 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(26, 95, 212, 0.18);
+  border-left: 3px solid #1a5fd4;
+  background: rgba(26, 95, 212, 0.05);
+}
+
+.tou-callout-no-margin {
+  margin-bottom: 0;
+}
+
+.tou-callout-p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #1e3a6d;
+}
+
+.tou-agreement-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: #0b1020;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -18px rgba(6, 12, 30, 0.55);
+  color: #e6ebf2;
+  margin-bottom: 48px;
+}
+
+.tou-banner-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 201, 167, 0.14);
+  color: #00c9a7;
+}
+
+.tou-banner-p {
+  margin: 0;
+  padding-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Layout Grid & TOC */
+.tou-grid {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.tou-toc-col {
+  position: sticky;
+  top: 100px;
+}
+
+.tou-toc-header {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.tou-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid #e6ebf2;
+}
+
+.tou-toc-link {
+  display: block;
+  padding: 7px 0 7px 16px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #64748b;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.tou-toc-link.active {
+  border-left-color: #1a5fd4;
+  color: #1a5fd4;
+  font-weight: 600;
+}
+
+/* Content Elements */
+.tou-intro-box {
+  padding: 24px 28px;
+  margin: 0 0 8px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e6ebf2;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.tou-hero-title {
+  max-width: 100%;
+  margin: 0 auto 20px;
+}
+
+.tou-hero-sub {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.tou-contact-card {
+  margin-top: 8px;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #1a5fd4, #00c9a7) border-box;
+}
+
+.tou-contact-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.tou-contact-company {
+  margin: 0 0 2px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tou-contact-address {
+  margin: 0 0 2px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.tou-contact-email-wrapper {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.tou-contact-email {
+  color: #1a5fd4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tou-footer-disclaimer {
+  margin: 24px 0 0;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .tou-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .tou-toc-col {
+    position: static;
+  }
+}
